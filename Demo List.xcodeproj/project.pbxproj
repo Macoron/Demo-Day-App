@@ -144,7 +144,7 @@
 					};
 				};
 			};
-			buildConfigurationList = EEB737BF261B74F700F105B1 /* Build configuration list for PBXProject "DemoDay Random" */;
+			buildConfigurationList = EEB737BF261B74F700F105B1 /* Build configuration list for PBXProject "Demo List" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -411,7 +411,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EEB737BF261B74F700F105B1 /* Build configuration list for PBXProject "DemoDay Random" */ = {
+		EEB737BF261B74F700F105B1 /* Build configuration list for PBXProject "Demo List" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EEB737DA261B74FA00F105B1 /* Debug */,
