@@ -14,43 +14,34 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
+                // list of all presentations
                 List {
-                    // presentaions
                     ForEach(presentations) { demo in
                         PresentationCell(presentation: demo)
-                        .onLongPressGesture {
+                        .onTapGesture {
                                 editProject(presentation: demo)
                             }
                     }
                     .onMove(perform: moveProjects)
                     .onDelete(perform: deleteProjects)
-                    
-                    // add new button
-                    Button("Add new...", action: addNewProject)
-                        .foregroundColor(.accentColor)
-                    
-                    // 
-                    HStack {
-                        let totalTime = calcTotalTime(presentations)
-                        Text("Total time:")
-                        Spacer()
-                        Text(totalTime.stringTime)
-                    }
-                    .foregroundColor(.secondary)
-                    .font(.subheadline)
-                
+                                        
+                    // total demo day count
+                    TotalTime(presentations: presentations)
                 }
-                .navigationTitle("Presentations")
-                .navigationBarItems(
-                trailing: EditButton())
-                .listStyle(PlainListStyle())
+
+                // add new presentation
+                Button("Add new...", action: addNewProject)
+                    .foregroundColor(.accentColor)
+                    .padding()
             }
-
+            .navigationTitle("Presentations")
+            .navigationBarItems(trailing: EditButton())
+            .listStyle(PlainListStyle())
         }
-
-
     }
-    
+}
+
+extension ContentView {
     func moveProjects(indices : IndexSet, newOffset : Int) {
         presentations.move(fromOffsets: indices, toOffset: newOffset)
     }
@@ -67,6 +58,7 @@ struct ContentView: View {
         
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -93,5 +85,21 @@ struct PresentationCell: View {
                 //.foregroundColor(.secondary)
         }
 
+    }
+}
+
+struct TotalTime: View {
+    let presentations : [Presentation]
+    
+    var body: some View {
+        HStack {
+            Text("Total time:")
+            Spacer()
+            
+            let totalTime = calcTotalTime(presentations)
+            Text(totalTime.stringTime)
+        }
+        .foregroundColor(.secondary)
+        .font(.subheadline)
     }
 }
