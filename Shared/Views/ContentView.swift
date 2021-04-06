@@ -16,6 +16,11 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 List {
+                    if isEmpty {
+                        Text("No presentations found")
+                            .foregroundColor(.secondary)
+                    }
+                    
                     // list of all presentations
                     ForEach(presentations) { demo in
                         PresentationCell(presentation: demo)
@@ -43,7 +48,7 @@ struct ContentView: View {
                     }
                 }
                 
-                if !isEmpty {
+                if presentations.count >= 2 {
                     HStack {
                         Button("Shuffle") {
                             shufflePresentations()
@@ -95,7 +100,9 @@ extension ContentView {
     }
     
     func addNewProject() {
-        addingNew = true
+        withAnimation() {
+            addingNew = true
+        }
     }
     
     func editProject(presentation : Presentation) {
@@ -103,7 +110,7 @@ extension ContentView {
     }
     
     func shufflePresentations() {
-        withAnimation(.easeInOut) {
+        withAnimation() {
             presentations.shuffle()
         }
     }
@@ -175,8 +182,10 @@ struct CreatePresentation: View {
             TextField("New presentation...",
                       text: $presentation.name,
                       onCommit: {
-                        editing = false
-                        presentations.append(presentation)
+                        withAnimation() {
+                            editing = false
+                            presentations.append(presentation)
+                        }
                       })
                 .font(.title)
                 .keyboardType(.webSearch)
