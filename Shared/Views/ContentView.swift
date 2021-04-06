@@ -44,6 +44,7 @@ struct ContentView: View {
                 Button("Shuffle") {
                     shufflePresentations()
                 }
+                .padding()
             }
             .navigationTitle("Presentations")
             .navigationBarItems(leading:
@@ -57,6 +58,7 @@ struct ContentView: View {
                 trailing: EditButton())
             .listStyle(PlainListStyle())
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
