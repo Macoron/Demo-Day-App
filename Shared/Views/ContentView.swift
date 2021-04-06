@@ -40,6 +40,10 @@ struct ContentView: View {
                     // total demo day count
                     TotalTime(presentations: presentations)
                 }
+                
+                Button("Shuffle") {
+                    shufflePresentations()
+                }
             }
             .navigationTitle("Presentations")
             .navigationBarItems(leading:
@@ -71,6 +75,12 @@ extension ContentView {
     
     func editProject(presentation : Presentation) {
         
+    }
+    
+    func shufflePresentations() {
+        withAnimation(.easeInOut) {
+            presentations.shuffle()
+        }
     }
 }
 
