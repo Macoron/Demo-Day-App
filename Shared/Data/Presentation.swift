@@ -1,15 +1,21 @@
 import Foundation
 
-struct Presentation : Identifiable {
+class Presentation : Identifiable, ObservableObject {
     var id = UUID()
     
-    var name : String
-    var membersCount = 1
+    @Published var name : String
+    @Published var speakersCount = 1
+    
+    init(name: String, speakersCount: Int = 1) {
+        self.name = name
+        self.speakersCount = speakersCount
+    }
     
     // avg time in seconds for one person to finish presentation
     static let timePerMember = 60.0 * 4
+    
     var assumedTime : TimeInterval {
-        return Double(membersCount) * Presentation.timePerMember
+        return Double(speakersCount) * Presentation.timePerMember
     }
 }
 
@@ -20,7 +26,7 @@ func calcTotalTime(_ presentations: [Presentation]) -> TimeInterval {
 }
 
 let testProjects = [
-    Presentation(name: "Rocket Science", membersCount: 3),
-    Presentation(name: "iOS Native Apps"),
-    Presentation(name: "Monkey Studies")
+    Presentation(name: "Rocket Science", speakersCount: 3),
+    Presentation(name: "iOS Native Apps", speakersCount: 1),
+    Presentation(name: "Monkey Studies", speakersCount: 4)
 ]

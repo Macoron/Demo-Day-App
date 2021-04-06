@@ -10,12 +10,13 @@ import SwiftUI
 struct ContentView: View {
     
     @State var presentations : [Presentation] = []
+    @State var addingNew = false
     
     var body: some View {
         NavigationView {
             VStack {
-                // list of all presentations
                 List {
+                    // list of all presentations
                     ForEach(presentations) { demo in
                         PresentationCell(presentation: demo)
                         .onTapGesture {
@@ -24,7 +25,12 @@ struct ContentView: View {
                     }
                     .onMove(perform: moveProjects)
                     .onDelete(perform: deleteProjects)
-                                        
+                             
+                    // New element view
+                    if addingNew {
+                        CreatePresentation(presentations: $presentations, editing: $addingNew)
+                    }
+                    
                     // total demo day count
                     TotalTime(presentations: presentations)
                 }
@@ -51,7 +57,7 @@ extension ContentView {
     }
     
     func addNewProject() {
-        
+        addingNew = true
     }
     
     func editProject(presentation : Presentation) {
@@ -62,7 +68,10 @@ extension ContentView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(presentations: testProjects)
+        Group {
+            ContentView(presentations: testProjects)
+            ContentView(presentations: testProjects, addingNew: true)
+        }
     }
 }
 
@@ -72,9 +81,9 @@ struct PresentationCell: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(presentation.name)
+                Text(presentation.name != "" ? presentation.name : "Unnamed")
                     .font(.headline)
-                Text("Members: \(presentation.membersCount)")
+                Text("Speakers: \(presentation.speakersCount)")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
@@ -101,5 +110,40 @@ struct TotalTime: View {
         }
         .foregroundColor(.secondary)
         .font(.subheadline)
+    }
+}
+
+struct CreatePresentation: View {
+    @Binding var presentations : [Presentation]
+    @Binding var editing : Bool
+    
+    @ObservedObject var presentation = Presentation(name: "")
+    
+    var body: some View {
+        VStack {
+            TextField("New presentation...", text: $presentation.name)
+                .font(.title)
+            Stepper(value: $presentation.speakersCount, in: 1...10) {
+                Text("Speakers count: \(presentation.speakersCount)")
+                    .foregroundColor(.secondary)
+            }
+            HStack {
+                Button("Cancel") {
+                    editing = false
+                }
+                Spacer()
+                Button("Create") {
+                    presentations.append(presentation)
+                    editing = false
+                }
+
+                .disabled(presentation.name == "")
+            }
+            .foregroundColor(.accentColor)
+            .font(.headline)
+            .padding(.top, 20.0)
+        }
+        .padding(.top, 5.0)
+        
     }
 }
