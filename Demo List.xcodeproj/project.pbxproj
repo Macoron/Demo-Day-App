@@ -8,15 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		EE54ACF7261B919E00794A44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE54ACF6261B919E00794A44 /* Extensions.swift */; };
-		EE54ACF8261B919E00794A44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE54ACF6261B919E00794A44 /* Extensions.swift */; };
 		EEB737D4261B74FA00F105B1 /* DemoDay_RandomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB737C1261B74F700F105B1 /* DemoDay_RandomApp.swift */; };
-		EEB737D5261B74FA00F105B1 /* DemoDay_RandomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB737C1261B74F700F105B1 /* DemoDay_RandomApp.swift */; };
 		EEB737D6261B74FA00F105B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB737C2261B74F700F105B1 /* ContentView.swift */; };
-		EEB737D7261B74FA00F105B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB737C2261B74F700F105B1 /* ContentView.swift */; };
 		EEB737D8261B74FA00F105B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB737C3261B74F900F105B1 /* Assets.xcassets */; };
-		EEB737D9261B74FA00F105B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB737C3261B74F900F105B1 /* Assets.xcassets */; };
 		EEB737F9261B7D2B00F105B1 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB737F8261B7D2B00F105B1 /* Presentation.swift */; };
-		EEB737FA261B7D2B00F105B1 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB737F8261B7D2B00F105B1 /* Presentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,21 +21,11 @@
 		EEB737C3261B74F900F105B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEB737C8261B74F900F105B1 /* DemoDay Random.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DemoDay Random.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB737CB261B74F900F105B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EEB737D0261B74F900F105B1 /* DemoDay Random.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DemoDay Random.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EEB737D2261B74FA00F105B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EEB737D3261B74FA00F105B1 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		EEB737F8261B7D2B00F105B1 /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EEB737C5261B74F900F105B1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EEB737CD261B74F900F105B1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -55,7 +40,6 @@
 			children = (
 				EEB737C0261B74F700F105B1 /* Shared */,
 				EEB737CA261B74F900F105B1 /* iOS */,
-				EEB737D1261B74FA00F105B1 /* macOS */,
 				EEB737C9261B74F900F105B1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,7 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				EEB737C8261B74F900F105B1 /* DemoDay Random.app */,
-				EEB737D0261B74F900F105B1 /* DemoDay Random.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,15 +70,6 @@
 				EEB737CB261B74F900F105B1 /* Info.plist */,
 			);
 			path = iOS;
-			sourceTree = "<group>";
-		};
-		EEB737D1261B74FA00F105B1 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				EEB737D2261B74FA00F105B1 /* Info.plist */,
-				EEB737D3261B74FA00F105B1 /* macOS.entitlements */,
-			);
-			path = macOS;
 			sourceTree = "<group>";
 		};
 		EEB737F4261B7C6300F105B1 /* Data */ = {
@@ -134,23 +108,6 @@
 			productReference = EEB737C8261B74F900F105B1 /* DemoDay Random.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EEB737CF261B74F900F105B1 /* DemoDay Random (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EEB737DF261B74FA00F105B1 /* Build configuration list for PBXNativeTarget "DemoDay Random (macOS)" */;
-			buildPhases = (
-				EEB737CC261B74F900F105B1 /* Sources */,
-				EEB737CD261B74F900F105B1 /* Frameworks */,
-				EEB737CE261B74F900F105B1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "DemoDay Random (macOS)";
-			productName = "DemoDay Random (macOS)";
-			productReference = EEB737D0261B74F900F105B1 /* DemoDay Random.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,9 +118,6 @@
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					EEB737C7261B74F900F105B1 = {
-						CreatedOnToolsVersion = 12.4;
-					};
-					EEB737CF261B74F900F105B1 = {
 						CreatedOnToolsVersion = 12.4;
 					};
 				};
@@ -182,7 +136,6 @@
 			projectRoot = "";
 			targets = (
 				EEB737C7261B74F900F105B1 /* DemoDay Random (iOS) */,
-				EEB737CF261B74F900F105B1 /* DemoDay Random (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -193,14 +146,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEB737D8261B74FA00F105B1 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EEB737CE261B74F900F105B1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EEB737D9261B74FA00F105B1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,17 +160,6 @@
 				EEB737D4261B74FA00F105B1 /* DemoDay_RandomApp.swift in Sources */,
 				EEB737F9261B7D2B00F105B1 /* Presentation.swift in Sources */,
 				EE54ACF7261B919E00794A44 /* Extensions.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EEB737CC261B74F900F105B1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EEB737D7261B74FA00F105B1 /* ContentView.swift in Sources */,
-				EEB737D5261B74FA00F105B1 /* DemoDay_RandomApp.swift in Sources */,
-				EEB737FA261B7D2B00F105B1 /* Presentation.swift in Sources */,
-				EE54ACF8261B919E00794A44 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,54 +322,6 @@
 			};
 			name = Release;
 		};
-		EEB737E0261B74FA00F105B1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = G6HAS4FMP3;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arvrlab.DemoDay-Random";
-				PRODUCT_NAME = "DemoDay Random";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		EEB737E1261B74FA00F105B1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = G6HAS4FMP3;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.arvrlab.DemoDay-Random";
-				PRODUCT_NAME = "DemoDay Random";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -453,15 +339,6 @@
 			buildConfigurations = (
 				EEB737DD261B74FA00F105B1 /* Debug */,
 				EEB737DE261B74FA00F105B1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EEB737DF261B74FA00F105B1 /* Build configuration list for PBXNativeTarget "DemoDay Random (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EEB737E0261B74FA00F105B1 /* Debug */,
-				EEB737E1261B74FA00F105B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

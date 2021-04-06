@@ -54,8 +54,15 @@ struct ContentView: View {
                             addingNew = false
                         }
                     }
+                    else {
+                        Button(action: shareProjects, label: {
+                            Image(systemName: "square.and.arrow.up")
+                                .frame(width: 50.0, height: 50.0)
+                        })
+                    }
                 },
-                trailing: EditButton())
+                                trailing: EditButton()
+                                    .frame(width: 50.0, height: 50.0))
             .listStyle(PlainListStyle())
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -83,6 +90,12 @@ extension ContentView {
         withAnimation(.easeInOut) {
             presentations.shuffle()
         }
+    }
+    
+    func shareProjects() {
+        let data = createShareReport(presentations)
+        let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+        UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }
 }
 

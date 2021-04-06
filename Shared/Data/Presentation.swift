@@ -25,6 +25,15 @@ func calcTotalTime(_ presentations: [Presentation]) -> TimeInterval {
     })
 }
 
+func createShareReport(_ presentations: [Presentation]) -> String {
+    var ret = ""
+    for (i, pres) in presentations.enumerated() {
+        ret += "\(i + 1) - \(pres.name) (\(pres.speakersCount) speakers)\n"
+    }
+    
+    return ret
+}
+
 let testProjects = [
     Presentation(name: "Rocket Science", speakersCount: 3),
     Presentation(name: "iOS Native Apps", speakersCount: 1),
