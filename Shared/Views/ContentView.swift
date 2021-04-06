@@ -42,7 +42,15 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Presentations")
-            .navigationBarItems(trailing: EditButton())
+            .navigationBarItems(leading:
+                HStack {
+                    if addingNew {
+                        Button("Cancel") {
+                            addingNew = false
+                        }
+                    }
+                },
+                trailing: EditButton())
             .listStyle(PlainListStyle())
         }
     }
