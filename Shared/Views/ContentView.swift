@@ -19,13 +19,13 @@ struct ContentView: View {
                     // list of all presentations
                     ForEach(presentations) { demo in
                         PresentationCell(presentation: demo)
-                        .onTapGesture {
+                            .onTapGesture {
                                 editProject(presentation: demo)
                             }
                     }
                     .onMove(perform: moveProjects)
                     .onDelete(perform: deleteProjects)
-                             
+                    
                     // New element view
                     if addingNew {
                         CreatePresentation(presentations: $presentations, editing: $addingNew)
@@ -36,33 +36,45 @@ struct ContentView: View {
                             .foregroundColor(.accentColor)
                             .font(.headline)
                     }
-               
+                    
                     // total demo day count
-                    TotalTime(presentations: presentations)
+                    if !isEmpty {
+                        TotalTime(presentations: presentations)
+                    }
                 }
                 
-                Button("Shuffle") {
-                    shufflePresentations()
+                if !isEmpty {
+                    HStack {
+                        Button("Shuffle") {
+                            shufflePresentations()
+                        }
+                        .padding()
+                    }
                 }
-                .padding()
             }
             .navigationTitle("Presentations")
             .navigationBarItems(leading:
-                HStack {
-                    if addingNew {
-                        Button("Cancel") {
-                            addingNew = false
-                        }
-                    }
-                    else {
-                        Button(action: shareProjects, label: {
-                            Image(systemName: "square.and.arrow.up")
-                                .frame(width: 50.0, height: 50.0)
-                        })
-                    }
-                },
-                                trailing: EditButton()
-                                    .frame(width: 50.0, height: 50.0))
+                                    HStack {
+                                        if addingNew {
+                                            Button("Cancel") {
+                                                addingNew = false
+                                            }
+                                        }
+                                        else {
+                                            if !isEmpty {
+                                                Button(action: shareProjects, label: {
+                                                    Image(systemName: "square.and.arrow.up")
+                                                        .frame(width: 50.0, height: 50.0)
+                                                })
+                                            }
+                                        }
+                                    },
+                                trailing: HStack {
+                                    if !isEmpty {
+                                        EditButton()
+                                            .frame(width: 50.0, height: 50.0)
+                                    }
+                                })
             .listStyle(PlainListStyle())
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -70,6 +82,10 @@ struct ContentView: View {
 }
 
 extension ContentView {
+    var isEmpty : Bool {
+        return presentations.isEmpty
+    }
+    
     func moveProjects(indices : IndexSet, newOffset : Int) {
         presentations.move(fromOffsets: indices, toOffset: newOffset)
     }
@@ -103,6 +119,7 @@ extension ContentView {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
+            ContentView(presentations: [])
             ContentView(presentations: testProjects)
             ContentView(presentations: testProjects, addingNew: true)
         }
@@ -125,9 +142,9 @@ struct PresentationCell: View {
             Spacer()
             Text("\(presentation.assumedTime.stringTime)")
                 .font(.subheadline)
-                //.foregroundColor(.secondary)
+            //.foregroundColor(.secondary)
         }
-
+        
     }
 }
 
@@ -157,10 +174,10 @@ struct CreatePresentation: View {
         VStack {
             TextField("New presentation...",
                       text: $presentation.name,
-                onCommit: {
-                    editing = false
-                    presentations.append(presentation)
-                })
+                      onCommit: {
+                        editing = false
+                        presentations.append(presentation)
+                      })
                 .font(.title)
                 .keyboardType(.webSearch)
             
