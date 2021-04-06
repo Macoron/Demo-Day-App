@@ -30,15 +30,16 @@ struct ContentView: View {
                     if addingNew {
                         CreatePresentation(presentations: $presentations, editing: $addingNew)
                     }
-                    
+                    // add new presentation
+                    else {
+                        Button("Add new...", action: addNewProject)
+                            .foregroundColor(.accentColor)
+                            .font(.headline)
+                    }
+               
                     // total demo day count
                     TotalTime(presentations: presentations)
                 }
-
-                // add new presentation
-                Button("Add new...", action: addNewProject)
-                    .foregroundColor(.accentColor)
-                    .padding()
             }
             .navigationTitle("Presentations")
             .navigationBarItems(trailing: EditButton())
@@ -121,27 +122,19 @@ struct CreatePresentation: View {
     
     var body: some View {
         VStack {
-            TextField("New presentation...", text: $presentation.name)
+            TextField("New presentation...",
+                      text: $presentation.name,
+                onCommit: {
+                    editing = false
+                    presentations.append(presentation)
+                })
                 .font(.title)
+                .keyboardType(.webSearch)
+            
             Stepper(value: $presentation.speakersCount, in: 1...10) {
                 Text("Speakers count: \(presentation.speakersCount)")
                     .foregroundColor(.secondary)
             }
-            HStack {
-                Button("Cancel") {
-                    editing = false
-                }
-                Spacer()
-                Button("Create") {
-                    presentations.append(presentation)
-                    editing = false
-                }
-
-                .disabled(presentation.name == "")
-            }
-            .foregroundColor(.accentColor)
-            .font(.headline)
-            .padding(.top, 20.0)
         }
         .padding(.top, 5.0)
         
