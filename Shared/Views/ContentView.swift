@@ -55,26 +55,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Presentations")
-            .navigationBarItems(leading:
-                                    HStack {
-                                        if addingNew {
-                                            Button("Cancel") {
-                                                addingNew = false
-                                            }
-                                        }
-                                        else {
-                                            if !isEmpty {
-                                                Button(action: shareProjects, label: {
-                                                    Image(systemName: "square.and.arrow.up")                                       
-                                                })
-                                            }
-                                        }
-                                    },
-                                trailing: HStack {
-                                    if !isEmpty {
-                                        EditButton()
-                                    }
-                                })
+            .navigationBarItems(leading: ShareCancelButton(store: store, addingNew: $addingNew),trailing: SmartEditButton(store: store))
             .listStyle(PlainListStyle())
         }
         .navigationViewStyle(StackNavigationViewStyle())
@@ -108,6 +89,42 @@ extension ContentView {
         }
         store.saveData()
     }
+}
+
+struct SmartEditButton : View {
+    @Environment(\.editMode) var editMode
+    
+    @StateObject var store : PresentationsStore
+    
+    var body: some View {
+        HStack {
+            if (store.presentations.count > 0 || editMode?.wrappedValue.isEditing == true)  {
+                EditButton()
+            }
+        }
+    }
+}
+
+struct ShareCancelButton : View {
+    @StateObject var store : PresentationsStore
+    @Binding var addingNew : Bool
+    
+    var body: some View {
+        HStack {
+            if addingNew {
+                Button("Cancel") {
+                    addingNew = false
+                }
+            }
+            else {
+                if store.presentations.count > 0  {
+                    Button(action: shareProjects, label: {
+                        Image(systemName: "square.and.arrow.up")
+                    })
+                }
+            }
+        }
+    }
     
     func shareProjects() {
         let data = store.createTextReport()
@@ -126,7 +143,6 @@ extension ContentView {
         }
     }
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
