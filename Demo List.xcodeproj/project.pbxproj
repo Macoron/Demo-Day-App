@@ -12,6 +12,7 @@
 		EEB737D6261B74FA00F105B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB737C2261B74F700F105B1 /* ContentView.swift */; };
 		EEB737D8261B74FA00F105B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB737C3261B74F900F105B1 /* Assets.xcassets */; };
 		EEB737F9261B7D2B00F105B1 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB737F8261B7D2B00F105B1 /* Presentation.swift */; };
+		EECAF9ED261DC487004DE81A /* PresentationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAF9EC261DC487004DE81A /* PresentationsStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		EEB737C8261B74F900F105B1 /* DemoDay Random.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DemoDay Random.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEB737CB261B74F900F105B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEB737F8261B7D2B00F105B1 /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
+		EECAF9EC261DC487004DE81A /* PresentationsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationsStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				EEB737F8261B7D2B00F105B1 /* Presentation.swift */,
+				EECAF9EC261DC487004DE81A /* PresentationsStore.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				EEB737D6261B74FA00F105B1 /* ContentView.swift in Sources */,
 				EEB737D4261B74FA00F105B1 /* DemoDay_RandomApp.swift in Sources */,
 				EEB737F9261B7D2B00F105B1 /* Presentation.swift in Sources */,
+				EECAF9ED261DC487004DE81A /* PresentationsStore.swift in Sources */,
 				EE54ACF7261B919E00794A44 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

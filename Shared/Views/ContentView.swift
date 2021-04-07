@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var presentations : [Presentation] = []
+    @StateObject var store = PresentationsStore()
     @State var addingNew = false
     
     var body: some View {
@@ -22,18 +22,15 @@ struct ContentView: View {
                     }
                     
                     // list of all presentations
-                    ForEach(presentations) { demo in
+                    ForEach(store.presentations) { demo in
                         PresentationCell(presentation: demo)
-                            .onTapGesture {
-                                editProject(presentation: demo)
-                            }
                     }
                     .onMove(perform: moveProjects)
                     .onDelete(perform: deleteProjects)
                     
                     // New element view
                     if addingNew {
-                        CreatePresentation(presentations: $presentations, editing: $addingNew)
+                        CreatePresentation(store: store, editing: $addingNew)
                     }
                     // add new presentation
                     else {
@@ -44,11 +41,11 @@ struct ContentView: View {
                     
                     // total demo day count
                     if !isEmpty {
-                        TotalTime(presentations: presentations)
+                        TotalTime(store: store)
                     }
                 }
                 
-                if presentations.count >= 2 {
+                if store.presentations.count >= 2 {
                     HStack {
                         Button("Shuffle") {
                             shufflePresentations()
@@ -88,15 +85,15 @@ struct ContentView: View {
 
 extension ContentView {
     var isEmpty : Bool {
-        return presentations.isEmpty
+        return store.presentations.isEmpty
     }
     
     func moveProjects(indices : IndexSet, newOffset : Int) {
-        presentations.move(fromOffsets: indices, toOffset: newOffset)
+        store.presentations.move(fromOffsets: indices, toOffset: newOffset)
     }
     
     func deleteProjects(indices : IndexSet) {
-        presentations.remove(atOffsets: indices)
+        store.presentations.remove(atOffsets: indices)
     }
     
     func addNewProject() {
@@ -105,18 +102,14 @@ extension ContentView {
         }
     }
     
-    func editProject(presentation : Presentation) {
-        
-    }
-    
     func shufflePresentations() {
         withAnimation() {
-            presentations.shuffle()
+            store.presentations.shuffle()
         }
     }
     
     func shareProjects() {
-        let data = createShareReport(presentations)
+        let data = store.createTextReport()
         let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
         UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
     }
@@ -126,9 +119,9 @@ extension ContentView {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView(presentations: [])
-            ContentView(presentations: testProjects)
-            ContentView(presentations: testProjects, addingNew: true)
+            ContentView(store: PresentationsStore())
+            ContentView(store: testStore)
+            ContentView(store: testStore, addingNew: true)
         }
     }
 }
@@ -156,14 +149,14 @@ struct PresentationCell: View {
 }
 
 struct TotalTime: View {
-    let presentations : [Presentation]
+    let store : PresentationsStore
     
     var body: some View {
         HStack {
             Text("Total time:")
             Spacer()
             
-            let totalTime = calcTotalTime(presentations)
+            let totalTime = store.calcTotalTime()
             Text(totalTime.stringTime)
         }
         .foregroundColor(.secondary)
@@ -172,26 +165,29 @@ struct TotalTime: View {
 }
 
 struct CreatePresentation: View {
-    @Binding var presentations : [Presentation]
+    @ObservedObject var store : PresentationsStore
     @Binding var editing : Bool
     
-    @ObservedObject var presentation = Presentation(name: "")
+    @State var name : String = ""
+    @State var speakersCount = 1
     
     var body: some View {
         VStack {
             TextField("New presentation...",
-                      text: $presentation.name,
+                      text: $name,
                       onCommit: {
                         withAnimation() {
                             editing = false
-                            presentations.append(presentation)
+                            
+                            let ret = Presentation(name: name, speakersCount: speakersCount)
+                            store.presentations.append(ret)
                         }
                       })
                 .font(.title)
                 .keyboardType(.webSearch)
             
-            Stepper(value: $presentation.speakersCount, in: 1...10) {
-                Text("Speakers count: \(presentation.speakersCount)")
+            Stepper(value: $speakersCount, in: 1...10) {
+                Text("Speakers count: \(speakersCount)")
                     .foregroundColor(.secondary)
             }
         }
