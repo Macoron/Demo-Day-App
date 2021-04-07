@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EE0F295B261E277800FB62AD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE0F295D261E277800FB62AD /* Localizable.strings */; };
+		EE228A92261E4E7B009211BD /* ContentViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE228A91261E4E7B009211BD /* ContentViewCells.swift */; };
+		EE228A96261E4F2E009211BD /* ContentViewToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE228A95261E4F2E009211BD /* ContentViewToolbar.swift */; };
 		EE54ACF7261B919E00794A44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE54ACF6261B919E00794A44 /* Extensions.swift */; };
 		EE674875261DCFB500C4B92D /* PresentationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE674874261DCFB500C4B92D /* PresentationsStore.swift */; };
 		EE67487F261E030200C4B92D /* PresentationsStore_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67487E261E030200C4B92D /* PresentationsStore_Tests.swift */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		EE0F295C261E277800FB62AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE0F2960261E279F00FB62AD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EE228A91261E4E7B009211BD /* ContentViewCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewCells.swift; sourceTree = "<group>"; };
+		EE228A95261E4F2E009211BD /* ContentViewToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewToolbar.swift; sourceTree = "<group>"; };
 		EE54ACF6261B919E00794A44 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EE674874261DCFB500C4B92D /* PresentationsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationsStore.swift; sourceTree = "<group>"; };
 		EE67487C261E030200C4B92D /* DemoDay RandomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DemoDay RandomTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				EEB737C2261B74F700F105B1 /* ContentView.swift */,
+				EE228A91261E4E7B009211BD /* ContentViewCells.swift */,
+				EE228A95261E4F2E009211BD /* ContentViewToolbar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,6 +243,8 @@
 			files = (
 				EEB737D6261B74FA00F105B1 /* ContentView.swift in Sources */,
 				EEB737D4261B74FA00F105B1 /* DemoDay_RandomApp.swift in Sources */,
+				EE228A92261E4E7B009211BD /* ContentViewCells.swift in Sources */,
+				EE228A96261E4F2E009211BD /* ContentViewToolbar.swift in Sources */,
 				EEB737F9261B7D2B00F105B1 /* Presentation.swift in Sources */,
 				EE674875261DCFB500C4B92D /* PresentationsStore.swift in Sources */,
 				EE54ACF7261B919E00794A44 /* Extensions.swift in Sources */,
