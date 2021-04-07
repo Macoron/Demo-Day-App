@@ -90,10 +90,12 @@ extension ContentView {
     
     func moveProjects(indices : IndexSet, newOffset : Int) {
         store.presentations.move(fromOffsets: indices, toOffset: newOffset)
+        store.saveData()
     }
     
     func deleteProjects(indices : IndexSet) {
         store.presentations.remove(atOffsets: indices)
+        store.saveData()
     }
     
     func addNewProject() {
@@ -106,6 +108,7 @@ extension ContentView {
         withAnimation() {
             store.presentations.shuffle()
         }
+        store.saveData()
     }
     
     func shareProjects() {
@@ -181,6 +184,7 @@ struct CreatePresentation: View {
                             
                             let ret = Presentation(name: name, speakersCount: speakersCount)
                             store.presentations.append(ret)
+                            store.saveData()
                             
                             reset()
                         }

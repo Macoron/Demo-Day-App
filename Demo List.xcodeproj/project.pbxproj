@@ -9,15 +9,29 @@
 /* Begin PBXBuildFile section */
 		EE54ACF7261B919E00794A44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE54ACF6261B919E00794A44 /* Extensions.swift */; };
 		EE674875261DCFB500C4B92D /* PresentationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE674874261DCFB500C4B92D /* PresentationsStore.swift */; };
+		EE67487F261E030200C4B92D /* PresentationsStore_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67487E261E030200C4B92D /* PresentationsStore_Tests.swift */; };
 		EEB737D4261B74FA00F105B1 /* DemoDay_RandomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB737C1261B74F700F105B1 /* DemoDay_RandomApp.swift */; };
 		EEB737D6261B74FA00F105B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB737C2261B74F700F105B1 /* ContentView.swift */; };
 		EEB737D8261B74FA00F105B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEB737C3261B74F900F105B1 /* Assets.xcassets */; };
 		EEB737F9261B7D2B00F105B1 /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB737F8261B7D2B00F105B1 /* Presentation.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EE674881261E030200C4B92D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEB737BC261B74F700F105B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EEB737C7261B74F900F105B1;
+			remoteInfo = "DemoDay Random (iOS)";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		EE54ACF6261B919E00794A44 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EE674874261DCFB500C4B92D /* PresentationsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationsStore.swift; sourceTree = "<group>"; };
+		EE67487C261E030200C4B92D /* DemoDay RandomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DemoDay RandomTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE67487E261E030200C4B92D /* PresentationsStore_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationsStore_Tests.swift; sourceTree = "<group>"; };
+		EE674880261E030200C4B92D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EEB737C1261B74F700F105B1 /* DemoDay_RandomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoDay_RandomApp.swift; sourceTree = "<group>"; };
 		EEB737C2261B74F700F105B1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EEB737C3261B74F900F105B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -27,6 +41,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		EE674879261E030200C4B92D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EEB737C5261B74F900F105B1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,11 +58,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE67487D261E030200C4B92D /* DemoDay RandomTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE67487E261E030200C4B92D /* PresentationsStore_Tests.swift */,
+				EE674880261E030200C4B92D /* Info.plist */,
+			);
+			path = "DemoDay RandomTests";
+			sourceTree = "<group>";
+		};
 		EEB737BB261B74F700F105B1 = {
 			isa = PBXGroup;
 			children = (
 				EEB737C0261B74F700F105B1 /* Shared */,
 				EEB737CA261B74F900F105B1 /* iOS */,
+				EE67487D261E030200C4B92D /* DemoDay RandomTests */,
 				EEB737C9261B74F900F105B1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -62,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				EEB737C8261B74F900F105B1 /* DemoDay Random.app */,
+				EE67487C261E030200C4B92D /* DemoDay RandomTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,6 +126,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		EE67487B261E030200C4B92D /* DemoDay RandomTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE674883261E030200C4B92D /* Build configuration list for PBXNativeTarget "DemoDay RandomTests" */;
+			buildPhases = (
+				EE674878261E030200C4B92D /* Sources */,
+				EE674879261E030200C4B92D /* Frameworks */,
+				EE67487A261E030200C4B92D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE674882261E030200C4B92D /* PBXTargetDependency */,
+			);
+			name = "DemoDay RandomTests";
+			productName = "DemoDay RandomTests";
+			productReference = EE67487C261E030200C4B92D /* DemoDay RandomTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		EEB737C7261B74F900F105B1 /* DemoDay Random (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEB737DC261B74FA00F105B1 /* Build configuration list for PBXNativeTarget "DemoDay Random (iOS)" */;
@@ -120,6 +170,10 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					EE67487B261E030200C4B92D = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = EEB737C7261B74F900F105B1;
+					};
 					EEB737C7261B74F900F105B1 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -139,11 +193,19 @@
 			projectRoot = "";
 			targets = (
 				EEB737C7261B74F900F105B1 /* DemoDay Random (iOS) */,
+				EE67487B261E030200C4B92D /* DemoDay RandomTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		EE67487A261E030200C4B92D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EEB737C6261B74F900F105B1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -155,6 +217,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		EE674878261E030200C4B92D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE67487F261E030200C4B92D /* PresentationsStore_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EEB737C4261B74F900F105B1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -169,7 +239,60 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		EE674882261E030200C4B92D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EEB737C7261B74F900F105B1 /* DemoDay Random (iOS) */;
+			targetProxy = EE674881261E030200C4B92D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		EE674884261E030200C4B92D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G6HAS4FMP3;
+				INFOPLIST_FILE = "DemoDay RandomTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arvrlab.DemoDay-RandomTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DemoDay Random.app/DemoDay Random";
+			};
+			name = Debug;
+		};
+		EE674885261E030200C4B92D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G6HAS4FMP3;
+				INFOPLIST_FILE = "DemoDay RandomTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.arvrlab.DemoDay-RandomTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DemoDay Random.app/DemoDay Random";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		EEB737DA261B74FA00F105B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -329,6 +452,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		EE674883261E030200C4B92D /* Build configuration list for PBXNativeTarget "DemoDay RandomTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE674884261E030200C4B92D /* Debug */,
+				EE674885261E030200C4B92D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		EEB737BF261B74F700F105B1 /* Build configuration list for PBXProject "Demo List" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

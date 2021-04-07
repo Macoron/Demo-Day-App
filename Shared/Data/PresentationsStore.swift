@@ -29,17 +29,17 @@ class PresentationsStore: ObservableObject {
         return ret
     }
     
-    func getDataPath() -> URL {
-        let appDirectory = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory,.userDomainMask, true).first!
+    func getDataPath() throws -> URL {
+        let dataPath = try FileManager.default
+            .url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+            .appendingPathComponent("data.json")
         
-        let dataPath = URL(fileURLWithPath: appDirectory).appendingPathComponent("data.json")
         return dataPath
     }
     
     func loadData() {
-        let dataPath = getDataPath()
-        
         do {
+            let dataPath = try getDataPath()
             let json = try String(contentsOf: dataPath).data(using: .utf8)!
             let decoder = JSONDecoder()
             
@@ -51,9 +51,8 @@ class PresentationsStore: ObservableObject {
     }
 
     func saveData() {
-        let dataPath = getDataPath()
-        
         do {
+            let dataPath = try getDataPath()
             let encoder = JSONEncoder()
             let json = try encoder.encode(presentations)
             
