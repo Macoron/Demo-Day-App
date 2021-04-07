@@ -16,7 +16,7 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 List {
-                    if isEmpty {
+                    if isEmpty && !addingNew {
                         Text("No presentations found")
                             .foregroundColor(.secondary)
                     }
