@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE0F295B261E277800FB62AD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE0F295D261E277800FB62AD /* Localizable.strings */; };
 		EE54ACF7261B919E00794A44 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE54ACF6261B919E00794A44 /* Extensions.swift */; };
 		EE674875261DCFB500C4B92D /* PresentationsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE674874261DCFB500C4B92D /* PresentationsStore.swift */; };
 		EE67487F261E030200C4B92D /* PresentationsStore_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE67487E261E030200C4B92D /* PresentationsStore_Tests.swift */; };
@@ -27,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EE0F295C261E277800FB62AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EE0F2960261E279F00FB62AD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE54ACF6261B919E00794A44 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EE674874261DCFB500C4B92D /* PresentationsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationsStore.swift; sourceTree = "<group>"; };
 		EE67487C261E030200C4B92D /* DemoDay RandomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DemoDay RandomTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +88,7 @@
 				EEB737C1261B74F700F105B1 /* DemoDay_RandomApp.swift */,
 				EEB737C3261B74F900F105B1 /* Assets.xcassets */,
 				EE54ACF6261B919E00794A44 /* Extensions.swift */,
+				EE0F295D261E277800FB62AD /* Localizable.strings */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -186,6 +190,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = EEB737BB261B74F700F105B1;
 			productRefGroup = EEB737C9261B74F900F105B1 /* Products */;
@@ -211,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEB737D8261B74FA00F105B1 /* Assets.xcassets in Resources */,
+				EE0F295B261E277800FB62AD /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +252,18 @@
 			targetProxy = EE674881261E030200C4B92D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EE0F295D261E277800FB62AD /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE0F295C261E277800FB62AD /* en */,
+				EE0F2960261E279F00FB62AD /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EE674884261E030200C4B92D /* Debug */ = {

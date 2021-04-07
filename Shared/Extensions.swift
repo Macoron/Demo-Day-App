@@ -27,18 +27,21 @@ extension TimeInterval {
     var stringTime: String {
         var ret = ""
         if hours != 0 {
-            ret += "\(hours)h "
+            ret += "\(hours)" + NSLocalizedString("h", comment: "") + " "
         }
         if minutes != 0 {
-            ret += "\(minutes)m "
+            ret += "\(minutes)" + NSLocalizedString("m", comment: "") + " "
         }
         if seconds != 0 {
-            ret += "\(seconds)s "
+            ret += "\(seconds)" + NSLocalizedString("s", comment: "") + " "
         }
         if milliseconds != 0 {
-            ret += "\(milliseconds)ms"
+            ret += "\(milliseconds)" + NSLocalizedString("ms", comment: "") + " "
         }
         
+        if (ret.last == " ") {
+            ret.removeLast()
+        }
         return ret
     }
 }

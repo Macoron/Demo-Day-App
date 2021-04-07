@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  Demo List
+
+  Created by labsallday labsallday on 07.04.2021.
+  
+*/
+
+"Presentations" = "Презентации";
+"Cancel" = "Отмена";
+"Shuffle" = "Перемешать";
+"Total time:" = "Общее время:";
+
+"New presentation..." = "Новая презентация...";
+"Speakers: %lld" = "Выступающих: %lld";
+"Speakers count: %lld" = "Кол-во выступающих: %lld";
+
+"ms" = "мс";
+"s" = "с";
+"m" = "м";
+"h" = "ч";
+
+"Add new..." = "Добавить...";
+"No presentations found" = "Презентации не найдены";

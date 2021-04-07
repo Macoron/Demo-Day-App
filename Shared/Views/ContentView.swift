@@ -65,8 +65,7 @@ struct ContentView: View {
                                         else {
                                             if !isEmpty {
                                                 Button(action: shareProjects, label: {
-                                                    Image(systemName: "square.and.arrow.up")
-                                                        .frame(width: 50.0, height: 50.0)
+                                                    Image(systemName: "square.and.arrow.up")                                       
                                                 })
                                             }
                                         }
@@ -74,7 +73,6 @@ struct ContentView: View {
                                 trailing: HStack {
                                     if !isEmpty {
                                         EditButton()
-                                            .frame(width: 50.0, height: 50.0)
                                     }
                                 })
             .listStyle(PlainListStyle())
@@ -114,7 +112,18 @@ extension ContentView {
     func shareProjects() {
         let data = store.createTextReport()
         let av = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-        UIApplication.shared.windows.first?.rootViewController?.present(av, animated: true, completion: nil)
+        
+        let vc = UIApplication.shared.windows.first?.rootViewController
+        vc?.present(av, animated: true, completion: nil)
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            av.popoverPresentationController?.sourceView = UIApplication.shared.windows.first
+            av.popoverPresentationController?.sourceRect = CGRect(
+                x: 0,y: UIScreen.main.bounds.height,
+                width: UIScreen.main.bounds.width / 2,
+                height: UIScreen.main.bounds.height / 2
+            )
+        }
     }
 }
 
@@ -125,6 +134,8 @@ struct ContentView_Previews: PreviewProvider {
             ContentView(store: PresentationsStore())
             ContentView(store: testStore)
             ContentView(store: testStore, addingNew: true)
+            ContentView(store: testStore, addingNew: true)
+                .environment(\.locale, .init(identifier: "ru"))
         }
     }
 }
@@ -152,7 +163,7 @@ struct PresentationCell: View {
 }
 
 struct TotalTime: View {
-    let store : PresentationsStore
+    @ObservedObject var store : PresentationsStore
     
     var body: some View {
         HStack {
