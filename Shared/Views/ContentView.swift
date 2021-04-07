@@ -181,6 +181,8 @@ struct CreatePresentation: View {
                             
                             let ret = Presentation(name: name, speakersCount: speakersCount)
                             store.presentations.append(ret)
+                            
+                            reset()
                         }
                       })
                 .font(.title)
@@ -193,5 +195,10 @@ struct CreatePresentation: View {
         }
         .padding(.top, 5.0)
         
+    }
+    
+    func reset() {
+        name = ""
+        speakersCount = 1
     }
 }
