@@ -2,7 +2,7 @@
 //  Extensions.swift
 //  Demo List
 //
-//  Created by labsallday labsallday on 05.04.2021.
+//  Created by Alex Evgrashin on 05.04.2021.
 //
 
 import Foundation

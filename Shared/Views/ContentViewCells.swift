@@ -2,7 +2,7 @@
 //  ContentViewCells.swift
 //  DemoDay Random (iOS)
 //
-//  Created by labsallday labsallday on 07.04.2021.
+//  Created by Alex Evgrashin on 07.04.2021.
 //
 
 import SwiftUI

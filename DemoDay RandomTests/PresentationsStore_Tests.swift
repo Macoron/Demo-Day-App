@@ -2,7 +2,7 @@
 //  DemoDay_RandomTests.swift
 //  DemoDay RandomTests
 //
-//  Created by labsallday labsallday on 07.04.2021.
+//  Created by Alex Evgrashin on 07.04.2021.
 //
 
 @testable import DemoDay_Random
